@@ -21,4 +21,24 @@ and does the following:
 
 import sys
 import calendar
-from datetime import datetime
+from datetime import datetime, date
+
+year = date.today().year
+if len(sys.argv) > 3:
+    print('usage: cal [month] [year]')
+    sys.exit()
+
+if len(sys.argv) == 1:
+    month = date.today().month
+    calendar.prmonth(year, month)
+
+elif len(sys.argv) == 2:
+    month = int(sys.argv[1])
+    calendar.prmonth(year, month)
+
+elif len(sys.argv) == 3:
+    month = int(sys.argv[1])
+    year = int(sys.argv[2])
+    calendar.prmonth(year, month)
+
+
